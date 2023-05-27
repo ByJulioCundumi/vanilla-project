@@ -1,1 +1,46 @@
+@use "colors";
+@use "shadows";
+@use "mixins";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    color: colors.$black;
+}
+
+.header{
+    box-shadow: shadows.$shadow-one;
+    position: fixed;
+    width: 100%;
+
+    // header styles
+    &__container{
+        max-width: 1400px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        @include mixins.center;
+    }
+
+    &__nav{
+        @include mixins.d-flex-gap(1rem); 
+        @media (max-width: 700px){
+            display: none;
+        }
+    }
+
+    &__link:hover{
+        color: colors.$gold;
+    }
+
+    &__icons{
+        @include mixins.d-flex-gap(1rem); 
+    }
+}
